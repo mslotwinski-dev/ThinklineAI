@@ -1,15 +1,35 @@
-from typing import Union
+from fastapi import FastAPI, HTTPException
 
-from fastapi import FastAPI
+from typing import List, Dict
+import json
+
+from openrouter import ask_openrouter
+from prompt_builder import generate_prompt, regenerate_prompt
+from requesttypes import ProjectRequest, ProjectResponse
 
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+@app.post("/generate", response_model=Dict[str, List[ProjectResponse]])
+async def generate_idea(data: ProjectRequest):
+    prompt = generate_prompt(data.language, data.level, data.tags)
+    try:
+        raw_json = await ask_openrouter(prompt)
+        ideas = json.loads(raw_json)
+        return {"ideas": ideas}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.post("/regenerate", response_model=Dict[str, List[ProjectResponse]])
+async def regenerate_idea(data: ProjectRequest):
+    prompt = regenerate_prompt(
+        data.language, data.level, data.tags, data.previous_projects)
+    try:
+        raw_json = await ask_openrouter(prompt)
+        ideas = json.loads(raw_json)
+        return {"ideas": ideas}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
