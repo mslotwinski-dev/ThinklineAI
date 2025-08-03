@@ -1,32 +1,22 @@
 <template>
-  <nav>
-    <img src="@/assets/logo.png" />
-    Polistats
-  </nav>
-  <router-view />
+  <div>
+    <Navbar />
+
+    <router-view />
+  </div>
 </template>
 
-<style lang="scss">
-nav {
-  img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-  color: #fff;
-  background-color: $main;
-  border-radius: 10px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-}
+<script lang="ts">
+import { defineComponent } from 'vue'
+import Navbar from '@/components/Shared/Navbar.vue'
 
-.map path,
-.map g,
-.map svg {
-  stroke-width: 0.37379283;
-  stroke: #ddd;
-  stroke-linecap: round;
-}
+export default defineComponent({
+  components: {
+    Navbar,
+  },
+})
+</script>
+
+<style lang="scss">
+@import '@/styles/index.scss';
 </style>
