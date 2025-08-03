@@ -1,4 +1,4 @@
-name: Deploy HorizonAI
+name: Deploy ThinklineAI
 
 on:
   push:

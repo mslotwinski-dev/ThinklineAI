@@ -1,7 +1,7 @@
 {
-  "name": "HorizonAI",
-  "short_name": "HorizonAI",
-  "description": "HorizonAI",
+  "name": "ThinklineAI",
+  "short_name": "ThinklineAI",
+  "description": "ThinklineAI",
   "lang": "en",
   "start_url": "/",
   "display": "standalone",

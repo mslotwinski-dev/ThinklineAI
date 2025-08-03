@@ -1,2 +1,1 @@
-# HorizonAI
-
+# ThinklineAI
