@@ -15,4 +15,4 @@ class ProjectRequest(BaseModel):
     language: str
     level: str
     tags: List[str]
-    previous_projects: Dict[str, List[ProjectResponse]] = []
+    previous_projects: Dict[str, List[ProjectResponse]] = []  # type: ignore

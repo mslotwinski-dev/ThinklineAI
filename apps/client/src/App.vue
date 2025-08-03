@@ -1,30 +1,32 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <img src="@/assets/logo.png" />
+    Polistats
   </nav>
   <router-view />
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+nav {
+  img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  color: #fff;
+  background-color: $main;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.map path,
+.map g,
+.map svg {
+  stroke-width: 0.37379283;
+  stroke: #ddd;
+  stroke-linecap: round;
 }
 </style>

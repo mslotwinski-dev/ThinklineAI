@@ -1,7 +1,20 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-createApp(App).use(store).use(router).mount("#app");
+import App from './App.vue'
+
+import VueSmoothScroll from 'vue3-smooth-scroll'
+import scrollsettings from './config/scroll'
+import FontAwesomeIcon from './config/icons'
+
+import router from './router'
+const pinia = createPinia()
+
+import './registerServiceWorker'
+
+createApp(App)
+  .component('ic', FontAwesomeIcon)
+  .use(VueSmoothScroll, scrollsettings)
+  .use(pinia)
+  .use(router)
+  .mount('#app')
