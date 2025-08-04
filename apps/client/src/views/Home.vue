@@ -5,9 +5,11 @@
     <Examples />
 
     <section class="final-cta">
-      <h2 class="section-title">Gotowy, by stworzyć coś niesamowitego?</h2>
+      <h2 class="section-title">
+        {{ $t('home.final.title') }}
+      </h2>
       <button class="cta-button secondary">
-        🚀 Znajdź swój idealny projekt
+        🚀 {{ $t('home.final.button') }}
       </button>
     </section>
   </div>

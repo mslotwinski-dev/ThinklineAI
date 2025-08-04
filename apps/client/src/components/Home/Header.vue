@@ -2,17 +2,20 @@
   <header class="section">
     <div class="content">
       <div class="title">
-        <div>Od idei do pierwszej linijki kodu.</div>
+        <div>
+          {{ $t('home.header.title') }}
+        </div>
         <div class="lestdothat">
-          <span class="highlight">Wygeneruj pomysł</span> na projekt w kilka
-          sekund!
+          <span class="highlight">{{ $t('home.header.highlight') }}</span>
+          {{ $t('home.header.letsdothat') }}
         </div>
       </div>
       <p class="subtitle">
-        Opisz swoje zainteresowania i technologie, a nasza sztuczna inteligencja
-        zaproponuje unikalne projekty programistyczne dopasowane do Ciebie.
+        {{ $t('home.header.subtitle') }}
       </p>
-      <button class="cta-button primary">🚀 Generuj Pomysły!</button>
+      <button class="cta-button primary">
+        🚀 {{ $t('home.header.button') }}
+      </button>
     </div>
   </header>
 </template>

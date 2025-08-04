@@ -1,43 +1,48 @@
 <template>
   <section class="example">
-    <div class="title">Zobacz, co możesz stworzyć</div>
+    <div class="title">
+      {{ $t('home.examples.title') }}
+    </div>
     <div class="grid">
       <div class="card">
-        <h4>Aplikacja do śledzenia książek</h4>
+        <h4>
+          {{ $t('home.examples.card.head.A') }}
+        </h4>
         <p>
-          Aplikacja webowa zintegrowana z API do monitorowania postępów w
-          czytaniu.
+          {{ $t('home.examples.card.p.A') }}
         </p>
         <div class="tags">
           <span class="tag">JavaScript</span>
           <span class="tag">React</span>
           <span class="tag">NodeJS</span>
-          <span class="tag beginner">Początkujący</span>
+          <span class="tag beginner">{{ $t('levels.beginner') }}</span>
         </div>
       </div>
       <div class="card">
-        <h4>Prognozowanie cen akcji</h4>
+        <h4>{{ $t('home.examples.card.head.B') }}</h4>
         <p>
-          Model uczenia maszynowego przewidujący ceny akcji na podstawie analizy
-          sentymentu z newsów.
+          {{ $t('home.examples.card.p.B') }}
         </p>
         <div class="tags">
           <span class="tag">Python</span>
           <span class="tag">TensorFlow</span>
-          <span class="tag advanced">Zaawansowany</span>
+          <span class="tag advanced">
+            {{ $t('levels.advanced') }}
+          </span>
         </div>
       </div>
       <div class="card">
-        <h4>Platforma dla roślin</h4>
+        <h4>{{ $t('home.examples.card.head.C') }}</h4>
         <p>
-          Lokalna platforma społecznościowa, gdzie użytkownicy mogą wymieniać
-          się wiedzą o domowych roślinach.
+          {{ $t('home.examples.card.p.C') }}
         </p>
         <div class="tags">
           <span class="tag">Vue.js</span>
           <span class="tag">Node.js</span>
           <span class="tag">MongoDB</span>
-          <span class="tag intermediate">Średniozaaw.</span>
+          <span class="tag intermediate">
+            {{ $t('levels.intermediate') }}
+          </span>
         </div>
       </div>
     </div>

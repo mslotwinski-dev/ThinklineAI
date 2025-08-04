@@ -2,12 +2,11 @@
   <div class="wrapper">
     <div class="display">
       <div class="lang">
-        <span v-html="selectedLanguage.label.toUpperCase()" />
-        <img :src="`https://flagcdn.com/w40/${selectedLanguage.icon}.png`" />
+        <span v-html="selectedLanguage.toUpperCase()" />
+        <img :src="getLanguageIcon(selectedLanguage)" />
       </div>
       <span class="dropdown-icon">▼</span>
     </div>
-
     <div class="options">
       <div
         v-for="lang in languages"
@@ -15,8 +14,8 @@
         class="option"
         @click="selectLanguage(lang)"
       >
-        {{ lang.label.toUpperCase() }}
-        <img :src="`https://flagcdn.com/w40/${lang.icon}.png`" />
+        {{ lang.toUpperCase() }}
+        <img :src="getLanguageIcon(lang)" />
       </div>
     </div>
   </div>
@@ -25,23 +24,53 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+const LOCALE_STORAGE_KEY = 'locale'
+
 export default defineComponent({
   data() {
     return {
-      selectedLanguage: { label: 'en', icon: 'us' },
       languages: [
-        { label: 'en', icon: 'us' },
-        { label: 'pl', icon: 'pl' },
-        { label: 'es', icon: 'es' },
-        { label: 'de', icon: 'de' },
+        'en',
+        'es',
+        'fr',
+        'pl',
+        'de',
+        'it',
+        'ru',
+        'jp',
+        'cn',
+        // 'in',
+        // 'no',
+        // 'nl',
       ],
+      selectedLanguage: 'en',
     }
   },
+
   methods: {
-    selectLanguage(lang: { label: string; icon: string }) {
-      this.selectedLanguage = lang
-      // console.log(`Selected language: ${lang.icon}`)
+    getLanguageIcon(lang: string): string {
+      // Free Russia
+      if (lang === 'ru') {
+        return 'https://upload.wikimedia.org/wikipedia/commons/6/6f/White-blue-white_flag.svg'
+      }
+
+      // Variations
+      if (lang === 'en') lang = 'us'
+
+      return `https://flagcdn.com/w40/${lang}.png`
     },
+    selectLanguage(lang: string) {
+      this.selectedLanguage = lang
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ;(this as any).$i18n.locale = lang
+      localStorage.setItem(LOCALE_STORAGE_KEY, lang)
+    },
+  },
+
+  mounted() {
+    const savedLocale = localStorage.getItem(LOCALE_STORAGE_KEY)
+    const initialLang = savedLocale || 'en'
+    this.selectLanguage(initialLang)
   },
 })
 </script>
@@ -69,7 +98,7 @@ export default defineComponent({
 }
 
 .wrapper:hover .options {
-  display: block;
+  height: 103px;
 }
 
 .lang {
@@ -82,26 +111,32 @@ export default defineComponent({
 }
 
 .options {
-  display: none;
+  display: flex;
+  height: 0px;
+  overflow: hidden;
   position: absolute;
+  flex-wrap: wrap;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: 305px;
   background-color: $dark;
   border: 1px solid $dark;
   border-top: none;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  transition: all 0.2s ease-in-out;
 }
 
 .option {
+  width: 100px;
   padding: 6px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   transition: 0.35s all;
+  flex-grow: 1;
 
   &:hover {
     background-color: $dark_gray;

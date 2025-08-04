@@ -1,0 +1,54 @@
+{
+  "home": {
+    "examples": {
+      "title": "",
+      "card": {
+        "head": {
+          "A": "",
+          "B": "",
+          "C": ""
+        },
+        "p": {
+          "A": "",
+          "B": "",
+          "C": ""
+        }
+      }
+    },
+    "header": {
+      "title": "",
+      "highlight": "",
+      "letsdothat": "",
+      "subtitle": "",
+      "button": ""
+    },
+    "howitworks": {
+      "title": "",
+      "step1": {
+        "title": "",
+        "description": ""
+      },
+      "step2": {
+        "title": "",
+        "description": ""
+      },
+      "step3": {
+        "title": "",
+        "description": ""
+      }
+    },
+    "final": {
+      "title": "",
+      "button": ""
+    }
+  },
+  "levels": {
+    "beginner": "",
+    "advanced": "",
+    "intermediate": ""
+  },
+  "navbar": {
+    "generate": "",
+    "projects": ""
+  }
+}

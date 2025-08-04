@@ -1,23 +1,29 @@
 <template>
   <section class="how-it-works">
-    <div class="title">Jak to działa? To proste.</div>
+    <div class="title">
+      {{ $t('home.howitworks.title') }}
+    </div>
     <div class="container">
       <div class="step">
         <div class="step-icon"><ic icon="feather-pointed" /></div>
-        <h3>Krok 1: Opisz Koncepcję</h3>
-        <p>Wpisz swoje pasje, preferowany język lub poziom trudności.</p>
+        <h3>{{ $t('home.howitworks.step1.title') }}</h3>
+        <p>
+          {{ $t('home.howitworks.step1.description') }}
+        </p>
       </div>
       <div class="step">
         <div class="step-icon"><ic icon="code-branch" /></div>
-        <h3>Krok 2: AI Analizuje</h3>
+        <h3>{{ $t('home.howitworks.step2.title') }}</h3>
         <p>
-          Nasze algorytmy przetwarzają Twoje dane, by znaleźć idealny projekt.
+          {{ $t('home.howitworks.step2.description') }}
         </p>
       </div>
       <div class="step">
         <div class="step-icon"><ic icon="lightbulb" /></div>
-        <h3>Krok 3: Odbierz Pomysły</h3>
-        <p>Otrzymaj listę kreatywnych i spersonalizowanych pomysłów.</p>
+        <h3>{{ $t('home.howitworks.step3.title') }}</h3>
+        <p>
+          {{ $t('home.howitworks.step3.description') }}
+        </p>
       </div>
     </div>
   </section>

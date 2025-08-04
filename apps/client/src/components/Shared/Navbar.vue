@@ -7,10 +7,10 @@
     </div>
     <div class="actions">
       <div>
-        <router-link to="/">Generate</router-link>
+        <router-link to="/">{{ $t('navbar.generate') }}</router-link>
       </div>
       <div>
-        <router-link to="/about">Projects</router-link>
+        <router-link to="/about">{{ $t('navbar.projects') }}</router-link>
       </div>
       <LanguageSelector />
     </div>

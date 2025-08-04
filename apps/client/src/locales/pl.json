@@ -1,0 +1,54 @@
+{
+  "home": {
+    "header": {
+      "title": "Od idei do pierwszej linijki kodu.",
+      "highlight": "Wygeneruj pomysł",
+      "letsdothat": "na projekt w kilka sekund!",
+      "subtitle": "Opisz swoje zainteresowania i technologie, a nasza sztuczna inteligencja zaproponuje unikalne projekty programistyczne dopasowane do Ciebie.",
+      "button": "Generuj pomysły"
+    },
+    "howitworks": {
+      "title": "Jak to działa? To proste.",
+      "step1": {
+        "title": "Krok 1: Opisz Koncepcję",
+        "description": "Wpisz swoje pasje, preferowany język lub poziom trudności."
+      },
+      "step2": {
+        "title": "Krok 2: AI Analizuje",
+        "description": "Nasze algorytmy przetwarzają Twoje dane, by znaleźć idealny projekt."
+      },
+      "step3": {
+        "title": "Krok 3: Odbierz Pomysły",
+        "description": "Otrzymaj listę kreatywnych i spersonalizowanych pomysłów."
+      }
+    },
+    "examples": {
+      "title": "Zobacz, co możesz stworzyć",
+      "card": {
+        "head": {
+          "A": "Aplikacja do śledzenia książek",
+          "B": "Prognozowanie cen akcji",
+          "C": "Platforma o roślinach"
+        },
+        "p": {
+          "A": "Aplikacja webowa zintegrowana z API do monitorowania postępów w czytaniu.",
+          "B": "Model uczenia maszynowego przewidujący ceny akcji na podstawie analizy sentymentu z newsów.",
+          "C": "Lokalna platforma społecznościowa, gdzie użytkownicy mogą wymieniać się wiedzą o domowych roślinach."
+        }
+      }
+    },
+    "final": {
+      "title": "Gotowy, by stworzyć coś niesamowitego?",
+      "button": "Znajdź swój idealny projekt"
+    }
+  },
+  "levels": {
+    "beginner": "Początkujący",
+    "advanced": "Zaawansowany",
+    "intermediate": "Średniozaawansowany"
+  },
+  "navbar": {
+    "generate": "Generuj",
+    "projects": "Projekty"
+  }
+}
