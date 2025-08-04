@@ -1,54 +1,84 @@
 {
   "home": {
+    "header": {
+      "title": "从创意到第一行代码。",
+      "highlight": "生成一个创意",
+      "letsdothat": "只需几秒钟即可创建项目！",
+      "subtitle": "描述你的兴趣和使用的技术，我们的人工智能将为你推荐独特且个性化的编程项目。",
+      "button": "生成创意"
+    },
+    "howitworks": {
+      "title": "它是如何运作的？非常简单。",
+      "step1": {
+        "title": "步骤1：描述你的想法",
+        "description": "输入你的兴趣、偏好的编程语言或项目难度。"
+      },
+      "step2": {
+        "title": "步骤2：AI分析",
+        "description": "我们的算法会处理你的输入，匹配理想的项目。"
+      },
+      "step3": {
+        "title": "步骤3：获取创意",
+        "description": "收到一份创意十足、为你量身定制的项目清单。"
+      }
+    },
     "examples": {
-      "title": "",
+      "title": "看看你可以创建什么",
       "card": {
         "head": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "图书跟踪应用",
+          "B": "股票价格预测",
+          "C": "植物交流平台"
         },
         "p": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "一个集成了API的网页应用，用于跟踪阅读进度。",
+          "B": "基于新闻情感分析的股票价格预测机器学习模型。",
+          "C": "一个本地社交平台，用户可以分享有关室内植物的知识。"
         }
       }
     },
-    "header": {
-      "title": "",
-      "highlight": "",
-      "letsdothat": "",
-      "subtitle": "",
-      "button": ""
-    },
-    "howitworks": {
-      "title": "",
-      "step1": {
-        "title": "",
-        "description": ""
-      },
-      "step2": {
-        "title": "",
-        "description": ""
-      },
-      "step3": {
-        "title": "",
-        "description": ""
-      }
-    },
     "final": {
-      "title": "",
-      "button": ""
+      "title": "准备好创造一些令人惊叹的东西了吗？",
+      "button": "寻找你的理想项目"
     }
   },
   "levels": {
-    "beginner": "",
-    "advanced": "",
-    "intermediate": ""
+    "beginner": "初学者",
+    "advanced": "高级",
+    "intermediate": "中级"
   },
   "navbar": {
-    "generate": "",
-    "projects": ""
+    "generate": "生成",
+    "projects": "项目"
+  },
+  "generate": {
+    "title": "看，多简单！",
+    "description": "输入你的项目细节，其余的交给我们来做。",
+    "language": "输入编程语言",
+    "tags": "标签",
+    "button": "生成",
+    "level": "选择项目难度等级",
+    "topic": "项目通用类别",
+    "topics": {
+      "web": "Web开发",
+      "desktop": "桌面与命令行工具",
+      "mobile": "移动开发",
+      "ai": "人工智能 / 机器学习",
+      "data": "数据科学",
+      "security": "网络安全",
+      "electronics": "电子与嵌入式系统",
+      "telecom": "通信与远程信息处理",
+      "physics": "物理与工程仿真",
+      "games": "游戏开发",
+      "others": "其他"
+    },
+    "placeholders": {
+      "tag": {
+        "A": "前端使用Vue，后端使用Go",
+        "B": "计算机仿真和3D建模",
+        "C": "空气动力学与火箭发动机",
+        "D": "露营地管理系统"
+      }
+    }
   }
 }

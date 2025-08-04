@@ -1,54 +1,84 @@
 {
   "home": {
+    "header": {
+      "title": "Dall'idea alla prima riga di codice.",
+      "highlight": "Genera un'idea",
+      "letsdothat": "per un progetto in pochi secondi!",
+      "subtitle": "Descrivi i tuoi interessi e le tecnologie che ti piacciono: la nostra intelligenza artificiale ti proporrà progetti di programmazione unici su misura per te.",
+      "button": "Genera idee"
+    },
+    "howitworks": {
+      "title": "Come funziona? È semplice.",
+      "step1": {
+        "title": "Passaggio 1: Descrivi il concetto",
+        "description": "Inserisci le tue passioni, il linguaggio preferito o il livello di difficoltà."
+      },
+      "step2": {
+        "title": "Passaggio 2: L’IA analizza",
+        "description": "I nostri algoritmi elaborano i tuoi dati per trovare il progetto ideale."
+      },
+      "step3": {
+        "title": "Passaggio 3: Ricevi idee",
+        "description": "Ricevi un elenco di idee creative e personalizzate."
+      }
+    },
     "examples": {
-      "title": "",
+      "title": "Guarda cosa puoi creare",
       "card": {
         "head": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "App per tracciare la lettura dei libri",
+          "B": "Previsione dei prezzi delle azioni",
+          "C": "Piattaforma sulle piante"
         },
         "p": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "Applicazione web integrata con API per monitorare i progressi di lettura.",
+          "B": "Modello di machine learning che prevede i prezzi delle azioni analizzando il sentiment delle notizie.",
+          "C": "Piattaforma sociale locale dove gli utenti possono condividere conoscenze sulle piante da appartamento."
         }
       }
     },
-    "header": {
-      "title": "",
-      "highlight": "",
-      "letsdothat": "",
-      "subtitle": "",
-      "button": ""
-    },
-    "howitworks": {
-      "title": "",
-      "step1": {
-        "title": "",
-        "description": ""
-      },
-      "step2": {
-        "title": "",
-        "description": ""
-      },
-      "step3": {
-        "title": "",
-        "description": ""
-      }
-    },
     "final": {
-      "title": "",
-      "button": ""
+      "title": "Pronto a creare qualcosa di straordinario?",
+      "button": "Trova il tuo progetto ideale"
     }
   },
   "levels": {
-    "beginner": "",
-    "advanced": "",
-    "intermediate": ""
+    "beginner": "Principiante",
+    "advanced": "Avanzato",
+    "intermediate": "Intermedio"
   },
   "navbar": {
-    "generate": "",
-    "projects": ""
+    "generate": "Genera",
+    "projects": "Progetti"
+  },
+  "generate": {
+    "title": "Guarda quanto è facile!",
+    "description": "Inserisci i dettagli del tuo progetto e noi ci occuperemo del resto.",
+    "language": "Inserisci il linguaggio di programmazione",
+    "tags": "Tag",
+    "button": "Genera",
+    "level": "Seleziona il livello di difficoltà del progetto",
+    "topic": "Categoria generale del progetto",
+    "topics": {
+      "web": "Sviluppo Web",
+      "desktop": "Desktop e CLI",
+      "mobile": "Mobile",
+      "ai": "IA / Apprendimento automatico",
+      "data": "Data Science",
+      "security": "Cybersecurity",
+      "electronics": "Elettronica e Sistemi Embedded",
+      "telecom": "Telecomunicazioni e Teleinformatica",
+      "physics": "Fisica e Simulazioni Ingegneristiche",
+      "games": "Sviluppo di Giochi",
+      "others": "Altro"
+    },
+    "placeholders": {
+      "tag": {
+        "A": "frontend in Vue, backend in Go",
+        "B": "simulazioni al computer e modellazione 3D",
+        "C": "aerodinamica e motori a razzo",
+        "D": "gestione di un campeggio"
+      }
+    }
   }
 }

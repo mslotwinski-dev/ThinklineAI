@@ -78,6 +78,7 @@ export default defineComponent({})
   border-radius: 12px;
   display: flex;
   flex-direction: column;
+  background-color: $dark;
 }
 
 .card h4 {

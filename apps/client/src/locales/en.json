@@ -1,54 +1,84 @@
 {
   "home": {
+    "header": {
+      "title": "From idea to the first line of code.",
+      "highlight": "Generate an idea",
+      "letsdothat": "for a project in seconds!",
+      "subtitle": "Describe your interests and technologies, and our AI will suggest unique programming projects tailored to you.",
+      "button": "Generate ideas"
+    },
+    "howitworks": {
+      "title": "How does it work? It's simple.",
+      "step1": {
+        "title": "Step 1: Describe Your Concept",
+        "description": "Enter your passions, preferred language, or difficulty level."
+      },
+      "step2": {
+        "title": "Step 2: AI Analyzes",
+        "description": "Our algorithms process your input to find the perfect project."
+      },
+      "step3": {
+        "title": "Step 3: Receive Ideas",
+        "description": "Get a list of creative and personalized ideas."
+      }
+    },
     "examples": {
-      "title": "",
+      "title": "See what you can build",
       "card": {
         "head": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "Book Tracking App",
+          "B": "Stock Price Prediction",
+          "C": "Plant Platform"
         },
         "p": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "A web app integrated with an API to track reading progress.",
+          "B": "A machine learning model predicting stock prices based on news sentiment analysis.",
+          "C": "A local social platform where users can share knowledge about houseplants."
         }
       }
     },
-    "header": {
-      "title": "",
-      "highlight": "",
-      "letsdothat": "",
-      "subtitle": "",
-      "button": ""
-    },
-    "howitworks": {
-      "title": "",
-      "step1": {
-        "title": "",
-        "description": ""
-      },
-      "step2": {
-        "title": "",
-        "description": ""
-      },
-      "step3": {
-        "title": "",
-        "description": ""
-      }
-    },
     "final": {
-      "title": "",
-      "button": ""
+      "title": "Ready to build something amazing?",
+      "button": "Find your perfect project"
     }
   },
   "levels": {
-    "beginner": "",
-    "advanced": "",
-    "intermediate": ""
+    "beginner": "Beginner",
+    "advanced": "Advanced",
+    "intermediate": "Intermediate"
   },
   "navbar": {
-    "generate": "",
-    "projects": ""
+    "generate": "Generate",
+    "projects": "Projects"
+  },
+  "generate": {
+    "title": "See how easy it is!",
+    "description": "Enter your project details, and we’ll take care of the rest.",
+    "language": "Enter programming language",
+    "tags": "Tags",
+    "button": "Generate",
+    "level": "Choose project difficulty level",
+    "topic": "General project category",
+    "topics": {
+      "web": "Web Development",
+      "desktop": "Desktop and CLI",
+      "mobile": "Mobile",
+      "ai": "AI / Machine Learning",
+      "data": "Data Science",
+      "security": "Cybersecurity",
+      "electronics": "Electronics and Embedded Systems",
+      "telecom": "Telecommunications and Teleinformatics",
+      "physics": "Physics and Engineering Simulations",
+      "games": "Game Development",
+      "others": "Others"
+    },
+    "placeholders": {
+      "tag": {
+        "A": "frontend in Vue, backend in Go",
+        "B": "computer simulations and 3D modeling",
+        "C": "aerodynamics and rocket engines",
+        "D": "campground management"
+      }
+    }
   }
 }

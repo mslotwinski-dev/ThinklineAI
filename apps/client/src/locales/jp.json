@@ -1,54 +1,84 @@
 {
   "home": {
+    "header": {
+      "title": "アイデアから最初の一行のコードへ。",
+      "highlight": "アイデアを生成",
+      "letsdothat": "数秒でプロジェクトを！",
+      "subtitle": "あなたの興味や技術を入力すると、AIがあなたに合ったユニークなプログラミングプロジェクトを提案します。",
+      "button": "アイデアを生成"
+    },
+    "howitworks": {
+      "title": "使い方はどうか、とても簡単です。",
+      "step1": {
+        "title": "ステップ1：コンセプトを入力",
+        "description": "情熱や好みの言語、難易度を入力します。"
+      },
+      "step2": {
+        "title": "ステップ2：AIが分析",
+        "description": "AIアルゴリズムがデータを処理し、理想的なプロジェクトを見つけます。"
+      },
+      "step3": {
+        "title": "ステップ3：アイデアを受け取る",
+        "description": "創造的でパーソナライズされたアイデアのリストを受け取ります。"
+      }
+    },
     "examples": {
-      "title": "",
+      "title": "あなたが作れるものを見てみましょう",
       "card": {
         "head": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "読書管理アプリ",
+          "B": "株価予測",
+          "C": "植物プラットフォーム"
         },
         "p": {
-          "A": "",
-          "B": "",
-          "C": ""
+          "A": "読書進捗を追跡するためのAPI連携ウェブアプリ。",
+          "B": "ニュースの感情分析を元に株価を予測する機械学習モデル。",
+          "C": "ユーザーが観葉植物の知識を共有できるローカルなソーシャルプラットフォーム。"
         }
       }
     },
-    "header": {
-      "title": "",
-      "highlight": "",
-      "letsdothat": "",
-      "subtitle": "",
-      "button": ""
-    },
-    "howitworks": {
-      "title": "",
-      "step1": {
-        "title": "",
-        "description": ""
-      },
-      "step2": {
-        "title": "",
-        "description": ""
-      },
-      "step3": {
-        "title": "",
-        "description": ""
-      }
-    },
     "final": {
-      "title": "",
-      "button": ""
+      "title": "何か素晴らしいものを作る準備はできていますか？",
+      "button": "理想的なプロジェクトを見つける"
     }
   },
   "levels": {
-    "beginner": "",
-    "advanced": "",
-    "intermediate": ""
+    "beginner": "初心者",
+    "advanced": "上級者",
+    "intermediate": "中級者"
   },
   "navbar": {
-    "generate": "",
-    "projects": ""
+    "generate": "生成",
+    "projects": "プロジェクト"
+  },
+  "generate": {
+    "title": "こんなに簡単！",
+    "description": "プロジェクトの詳細を入力すると、あとはAIにお任せ。",
+    "language": "プログラミング言語を入力",
+    "tags": "タグ",
+    "button": "生成",
+    "level": "プロジェクトの難易度を選択",
+    "topic": "プロジェクトのカテゴリ",
+    "topics": {
+      "web": "Web開発",
+      "desktop": "デスクトップ & CLI",
+      "mobile": "モバイル",
+      "ai": "AI / 機械学習",
+      "data": "データサイエンス",
+      "security": "サイバーセキュリティ",
+      "electronics": "電子工学と組み込みシステム",
+      "telecom": "通信とテレマティクス",
+      "physics": "物理と工学シミュレーション",
+      "games": "ゲーム開発",
+      "others": "その他"
+    },
+    "placeholders": {
+      "tag": {
+        "A": "Vueのフロントエンド、Goのバックエンド",
+        "B": "コンピュータシミュレーションと3Dモデリング",
+        "C": "空気力学とロケットエンジン",
+        "D": "キャンプ場の管理"
+      }
+    }
   }
 }

@@ -50,5 +50,35 @@
   "navbar": {
     "generate": "Generuj",
     "projects": "Projekty"
+  },
+  "generate": {
+    "title": "Zobacz jakie to proste!",
+    "description": "Wprowadź szczegóły dotyczące swojego projektu, a my zajmiemy się resztą.",
+    "language": "Wpisz język programowania",
+    "tags": "Tagi",
+    "button": "Generuj",
+    "level": "Wybierz poziom trudności projektu",
+    "topic": "Ogólna kategoria projektu",
+    "topics": {
+      "web": "Web Development",
+      "desktop": "Desktop i CLI",
+      "mobile": "Mobile",
+      "ai": "AI / Machine Learning",
+      "data": "Data Science",
+      "security": "Cyberbezpieczeństwo",
+      "electronics": "Elektronika i Systemy Wbudowane",
+      "telecom": "Telekomunikacja i Teleinformatyka",
+      "physics": "Fizyka i Symulacje Inżynierskie",
+      "games": "Game Development",
+      "others": "Inne"
+    },
+    "placeholders": {
+      "tag": {
+        "A": "frontend w Vue, backend w Go",
+        "B": "symulacje komputerowe i modelowanie 3D",
+        "C": "aerodynamika i silniki rakietowe",
+        "D": "zarządzanie polem namiotowym"
+      }
+    }
   }
 }

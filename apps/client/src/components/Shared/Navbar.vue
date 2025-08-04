@@ -1,16 +1,16 @@
 <template>
   <nav>
-    <div class="logo">
+    <div class="logo" @click="$router.push('/')">
       <img src="@/assets/logo_violet.svg" />
       <div>Thinkline</div>
       <div class="ai">AI</div>
     </div>
     <div class="actions">
       <div>
-        <router-link to="/">{{ $t('navbar.generate') }}</router-link>
+        <router-link to="/generate">{{ $t('navbar.generate') }}</router-link>
       </div>
       <div>
-        <router-link to="/about">{{ $t('navbar.projects') }}</router-link>
+        <router-link to="/projects">{{ $t('navbar.projects') }}</router-link>
       </div>
       <LanguageSelector />
     </div>
@@ -45,6 +45,7 @@ nav {
 .logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   img {
     width: 50px;
