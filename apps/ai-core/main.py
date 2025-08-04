@@ -12,7 +12,7 @@ app = FastAPI()
 
 @app.post("/generate", response_model=Dict[str, List[ProjectResponse]])
 async def generate_idea(data: ProjectRequest):
-    prompt = generate_prompt(data.language, data.level, data.tags)
+    prompt = generate_prompt(data)
     try:
         raw_json = await ask_openrouter(prompt)
         ideas = json.loads(raw_json)
@@ -24,8 +24,7 @@ async def generate_idea(data: ProjectRequest):
 
 @app.post("/regenerate", response_model=Dict[str, List[ProjectResponse]])
 async def regenerate_idea(data: ProjectRequest):
-    prompt = regenerate_prompt(
-        data.language, data.level, data.tags, data.previous_projects)
+    prompt = regenerate_prompt(data)
     try:
         raw_json = await ask_openrouter(prompt)
         ideas = json.loads(raw_json)

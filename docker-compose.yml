@@ -7,7 +7,7 @@ services:
   api:
     build: ./apps/api
     ports:
-      - "5000:3000"
+      - "5000:5000"
     environment:
       - NODE_ENV=production
 

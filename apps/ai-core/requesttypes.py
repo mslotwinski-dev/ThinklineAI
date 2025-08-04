@@ -13,6 +13,8 @@ class ProjectResponse(BaseModel):
 
 class ProjectRequest(BaseModel):
     language: str
-    level: str
+    locale: str
+    level: int
+    topic: int
     tags: List[str]
     previous_projects: Dict[str, List[ProjectResponse]] = []  # type: ignore
