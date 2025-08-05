@@ -99,6 +99,7 @@ export default defineComponent({
 
 .wrapper:hover .options {
   height: 103px;
+  border: 1px solid $dark;
 }
 
 .lang {
@@ -120,7 +121,6 @@ export default defineComponent({
   left: 0;
   width: 305px;
   background-color: $dark;
-  border: 1px solid $dark;
   border-top: none;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

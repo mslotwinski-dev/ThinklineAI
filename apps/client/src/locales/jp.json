@@ -79,6 +79,13 @@
         "C": "空気力学とロケットエンジン",
         "D": "キャンプ場の管理"
       }
-    }
+    },
+    "waiting": "",
+    "error": ""
+  },
+  "project": {
+    "tech_stack": "",
+    "tags": "",
+    "estimated_time": ""
   }
 }

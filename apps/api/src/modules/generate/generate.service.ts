@@ -25,6 +25,7 @@ export class GenerateService {
       } else {
         console.error('Unknown error calling AI service:', error)
       }
+      console.log('Error:', error)
     }
     return []
   }

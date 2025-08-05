@@ -79,6 +79,13 @@
         "C": "aerodynamika i silniki rakietowe",
         "D": "zarządzanie polem namiotowym"
       }
-    }
+    },
+    "waiting": "Ładowanie...",
+    "error": "Wystąpił błąd podczas generowania projektu. Spróbuj ponownie."
+  },
+  "project": {
+    "tech_stack": "Technologie",
+    "tags": "Cechy projektu",
+    "estimated_time": "Przewidywany czas"
   }
 }

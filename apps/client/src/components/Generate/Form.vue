@@ -75,7 +75,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from '@/config/axios'
 
 export default defineComponent({
   data() {
@@ -88,29 +87,13 @@ export default defineComponent({
   },
   methods: {
     generate() {
-      axios
-        .post('/generate', {
-          language: this.language,
-          topic: this.topic,
-          tags: this.tags,
-          level: this.level,
-          locale: localStorage.getItem('locale') || 'en',
-        })
-        .then((response) => {
-          if (response.data.success) {
-            console.log('Generation successful:', response.data)
-            // this.$router.push({
-            //   name: 'GenerateResult',
-            //   params: { id: response.data.id },
-            // })
-          } else {
-            // this.$toast.error(this.$t('generate.error'))
-          }
-        })
-        .catch((error) => {
-          console.error(error)
-          // this.$toast.error(this.$t('generate.error'))
-        })
+      this.$emit('generate', {
+        language: this.language,
+        topic: this.topic,
+        tags: this.tags,
+        level: this.level,
+        locale: localStorage.getItem('locale') || 'en',
+      })
     },
   },
 })

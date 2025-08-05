@@ -79,6 +79,13 @@
         "C": "空气动力学与火箭发动机",
         "D": "露营地管理系统"
       }
-    }
+    },
+    "waiting": "",
+    "error": ""
+  },
+  "project": {
+    "tech_stack": "",
+    "tags": "",
+    "estimated_time": ""
   }
 }

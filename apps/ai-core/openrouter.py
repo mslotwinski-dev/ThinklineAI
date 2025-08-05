@@ -28,6 +28,10 @@ async def ask_openrouter(prompt: str) -> str:
             timeout=20
         )
 
+    if response.status_code != 200:
+        raise Exception(
+            f"OpenRouter returned status {response.status_code}: {response.text}")
+
     response.raise_for_status()
     content = response.json()
     return content["choices"][0]["message"]["content"]

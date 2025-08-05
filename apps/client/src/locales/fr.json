@@ -79,6 +79,13 @@
         "C": "aérodynamique et moteurs de fusée",
         "D": "gestion d’un terrain de camping"
       }
-    }
+    },
+    "waiting": "",
+    "error": ""
+  },
+  "project": {
+    "tech_stack": "",
+    "tags": "",
+    "estimated_time": ""
   }
 }

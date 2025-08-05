@@ -79,6 +79,13 @@
         "C": "aerodynamics and rocket engines",
         "D": "campground management"
       }
-    }
+    },
+    "waiting": "",
+    "error": ""
+  },
+  "project": {
+    "tech_stack": "",
+    "tags": "",
+    "estimated_time": ""
   }
 }

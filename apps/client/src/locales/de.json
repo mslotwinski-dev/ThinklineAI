@@ -79,6 +79,13 @@
         "C": "Aerodynamik und Raketentriebwerke",
         "D": "Campingplatzverwaltung"
       }
-    }
+    },
+    "waiting": "",
+    "error": ""
+  },
+  "project": {
+    "tech_stack": "",
+    "tags": "",
+    "estimated_time": ""
   }
 }

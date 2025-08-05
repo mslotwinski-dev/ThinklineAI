@@ -79,6 +79,13 @@
         "C": "aerodinamica e motori a razzo",
         "D": "gestione di un campeggio"
       }
-    }
+    },
+    "waiting": "",
+    "error": ""
+  },
+  "project": {
+    "tech_stack": "",
+    "tags": "",
+    "estimated_time": ""
   }
 }

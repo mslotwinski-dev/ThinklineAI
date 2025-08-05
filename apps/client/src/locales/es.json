@@ -79,6 +79,13 @@
         "C": "aerodinámica y motores de cohetes",
         "D": "gestión de campamentos"
       }
-    }
+    },
+    "waiting": "",
+    "error": ""
+  },
+  "project": {
+    "tech_stack": "",
+    "tags": "",
+    "estimated_time": ""
   }
 }
