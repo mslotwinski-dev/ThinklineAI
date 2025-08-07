@@ -13,4 +13,12 @@ export class GenerateController {
     const projects = await this.generateService.generate(body)
     return projects
   }
+
+  @Post('regenerate')
+  async regenerate(
+    @Body() body: generateTypes.GenerateData
+  ): Promise<generateTypes.Project[]> {
+    const projects = await this.generateService.generate(body)
+    return projects
+  }
 }

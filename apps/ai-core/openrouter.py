@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-MODEL = "openrouter/horizon-beta"
+MODEL = "openai/gpt-oss-20b:free"
 
 
 async def ask_openrouter(prompt: str) -> str:
@@ -27,6 +27,8 @@ async def ask_openrouter(prompt: str) -> str:
             json=payload,
             timeout=20
         )
+        print(f"OpenRouter status code: {response.status_code}")
+        print(f"OpenRouter response text: {response.text}")
 
     if response.status_code != 200:
         raise Exception(

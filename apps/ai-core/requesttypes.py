@@ -17,4 +17,4 @@ class ProjectRequest(BaseModel):
     level: int
     topic: int
     tags: List[str]
-    previous_projects: Dict[str, List[ProjectResponse]] = []  # type: ignore
+    previous_projects: List[str] = []

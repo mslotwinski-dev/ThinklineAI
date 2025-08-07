@@ -27,9 +27,6 @@ export default defineComponent({
     HowWorks,
     Examples,
   },
-  mounted() {
-    document.title = 'Thinkline AI'
-  },
 })
 </script>
 

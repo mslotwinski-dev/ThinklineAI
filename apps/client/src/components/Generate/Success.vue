@@ -30,6 +30,7 @@
       </div>
     </div>
   </div>
+  <button v-html="$t('generate.regenerate')" @click="regenerateProjects" />
 </template>
 
 <script lang="ts">
@@ -40,6 +41,11 @@ export default defineComponent({
     projects: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    regenerateProjects() {
+      this.$emit('regenerate')
     },
   },
 })
@@ -105,5 +111,26 @@ span {
   bottom: 20px;
   right: 20px;
   gap: 15px;
+}
+
+button {
+  padding: 7px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  color: $light;
+  font-size: 16px;
+  max-width: 300px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: $green;
+  margin-top: 20px;
+  color: $light;
+
+  &:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
 }
 </style>

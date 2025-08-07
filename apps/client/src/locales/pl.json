@@ -81,7 +81,8 @@
       }
     },
     "waiting": "Ładowanie...",
-    "error": "Wystąpił błąd podczas generowania projektu. Spróbuj ponownie."
+    "error": "Wystąpił błąd podczas generowania projektu. Spróbuj ponownie.",
+    "regenerate": "Szukasz czegoś innego? Wygeneruj projekty ponownie!"
   },
   "project": {
     "tech_stack": "Technologie",

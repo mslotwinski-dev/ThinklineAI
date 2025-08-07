@@ -14,6 +14,9 @@ export default defineComponent({
   components: {
     Navbar,
   },
+  mounted() {
+    document.title = 'Thinkline AI'
+  },
 })
 </script>
 

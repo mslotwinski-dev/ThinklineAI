@@ -4,6 +4,7 @@ export interface GenerateData {
   tags: string[]
   locale: string
   topic: number
+  previous_projects?: string[]
 }
 
 export interface Project {

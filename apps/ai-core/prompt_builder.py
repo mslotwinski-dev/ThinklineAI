@@ -31,6 +31,7 @@ def return_project_level(number: int) -> str:
 def generate_prompt(data: ProjectRequest) -> str:
     tag_str = ", ".join(data.tags)
     return (
+        f"Mów do mnie po polsku."
         f"Wygeneruj 3 pomysły na projekt programistyczny w języku {data.language}, którego ogólna tematyka to {return_project_topic(data.topic)}, o poziomie trudności: {return_project_level(data.level)}, o cechach: {tag_str}. "
         f"Dla każdego pomysłu podaj odpowiedź w formacie JSON:\n"
         f"""\n[
@@ -52,9 +53,10 @@ def regenerate_prompt(data: ProjectRequest) -> str:
     tag_str = ", ".join(data.tags)
     previous_projects = data.previous_projects
     return (
+        f"Mów do mnie po polsku."
         f"Poprzednio wygenerowane projekty mi się nie spodobały, więc chciałbym spróbować ponownie. "
         f"Oto poprzednie projekty: {previous_projects}. "
-        f"Wygeneruj 3 inne pomysły na projekt programistyczny w języku {data.language}, o poziomie trudności: {data.level}, o cechach: {tag_str}. "
+        f"Wygeneruj 3 pomysły na projekt programistyczny w języku {data.language}, którego ogólna tematyka to {return_project_topic(data.topic)}, o poziomie trudności: {return_project_level(data.level)}, o cechach: {tag_str}. "
         f"Dla każdego pomysłu podaj odpowiedź w formacie JSON:\n"
         f"""\n[
   {{
