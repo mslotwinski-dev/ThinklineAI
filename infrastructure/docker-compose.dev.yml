@@ -1,0 +1,35 @@
+services:
+  client:
+    build:
+      context: ../apps/client
+      target: development
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../apps/client:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+
+  api:
+    build:
+      context: ../apps/api
+      target: development
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../apps/api:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+
+  ai-core:
+    build:
+      context: ../apps/ai-core
+      target: development
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../apps/ai-core:/app
+    environment:
+      APP_ENV: development
