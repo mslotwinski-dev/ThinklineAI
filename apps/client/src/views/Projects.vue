@@ -16,7 +16,7 @@
         v-for="project in projects"
         :key="project.id"
       >
-        <div class="project">
+        <div class="project" @click="$router.push('/projects/' + project.ID)">
           <div class="name" v-html="project.name"></div>
           <div class="tags">
             <div

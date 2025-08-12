@@ -8,6 +8,7 @@ export interface GenerateData {
 }
 
 export interface Project {
+  ID: string
   name: string
   description: string
   tech_stack: string[]

@@ -99,5 +99,11 @@
     "description": "Teraz możemy przejść do szczegółów. Wybierz projekt, aby kontynuować.",
     "empty": "Nie masz jeszcze żadnych projektów.",
     "addmore": "Wygeneruj projekty zanim zaczniesz je realizować."
+  },
+  "p404": {
+    "title": "Nie znaleziono projektu",
+    "desc": "Wygląda na to, że nie masz takiego projektu. Pamiętaj, projekty są dostępne tylko lokalnie.",
+    "gotoprojects": "Sprawdź link albo spróbuj ponownie.",
+    "link": "Przejdź do projektów"
   }
 }

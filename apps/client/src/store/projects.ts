@@ -40,11 +40,8 @@ export const useProjectsStore = defineStore('projects', {
     removeProject(project: Project) {
       this.loadFromLocalStorage()
 
-      this.projects = this.projects.filter(
-        (p) => p.description != project.description
-      )
+      this.projects = this.projects.filter((p) => p.ID != project.ID)
 
-      console.log(this.projects)
       this.saveToLocalStorage()
 
       notify({
