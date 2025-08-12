@@ -1,40 +1,45 @@
 <template>
-  <div class="project-list">
-    <div v-for="(project, index) in projects" :key="index" class="item">
-      <div class="name">{{ project.name }}</div>
-      <p>{{ project.description }}</p>
-      <div class="stack">
-        <span v-html="$t('project.tech_stack')" />
-        <div
-          v-for="(tag, tagIndex) in project.tech_stack"
-          :key="tagIndex"
-          v-html="tag"
-        />
-      </div>
-      <div class="tags">
-        <span v-html="$t('project.tags')" />
-        <div
-          v-for="(tag, tagIndex) in project.tags"
-          :key="tagIndex"
-          v-html="tag"
-        />
-      </div>
-      <div class="estimated">
-        <span v-html="$t('project.estimated_time')" />
-        {{ project.estimated_time }}
-      </div>
-      <div class="buttons">
-        <div class="save">
-          <ic icon="bookmark" />
-        </div>
-      </div>
+  <div class="title">
+    {{ $t('generate.success') }}
+    <span class="gold">
+      <ic icon="truck-fast" />
+    </span>
+  </div>
+  <div class="desc">
+    {{ $t('generate.success_description') }}
+  </div>
+
+  <div class="buttons">
+    <div class="buttoncont">
+      <div>{{ $t('generate.lfse') }}</div>
+
+      <button @click="regenerateProjects">
+        {{ $t('generate.regenerate') }}
+      </button>
+    </div>
+
+    <div class="buttoncont">
+      <div>{{ $t('generate.done') }}</div>
+      <button :disabled="!counter" @click="$router.push('/projects')">
+        {{ $t('generate.projects') }}
+      </button>
     </div>
   </div>
-  <button v-html="$t('generate.regenerate')" @click="regenerateProjects" />
+
+  <div class="project-list">
+    <Project
+      v-for="(project, index) in projects"
+      :key="index"
+      :project="project"
+      @added="counter++"
+      @removed="counter--"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Project from './Project.vue'
 
 export default defineComponent({
   props: {
@@ -42,6 +47,14 @@ export default defineComponent({
       type: Array,
       required: true,
     },
+  },
+  data() {
+    return {
+      counter: 0,
+    }
+  },
+  components: {
+    Project,
   },
   methods: {
     regenerateProjects() {
@@ -52,70 +65,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.item {
-  padding: 20px;
-  max-width: 1000px;
-  margin: 10px auto;
-  background-color: $dark;
-  border-radius: 10px;
-}
-
-.name {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-span {
-  margin-right: 10px;
-  &:after {
-    content: ':';
-  }
-}
-
-.stack,
-.tags {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  font-size: 14px;
-  margin: 15px 0;
-  div {
-    padding: 5px 10px;
-    background-color: $violet;
-    border-radius: 5px;
-  }
-}
-
-.tags div {
-  background-color: $rose;
-}
-
-.estimated {
-  font-size: 14px;
-}
-
-.save {
-  cursor: pointer;
-  background: $violet;
-  font-size: 20px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.buttons {
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
-  bottom: 20px;
-  right: 20px;
-  gap: 15px;
-}
-
 button {
-  padding: 7px;
-  margin: 10px 0;
   border-radius: 8px;
   border: none;
   color: $light;
@@ -124,13 +74,53 @@ button {
   padding: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: $green;
-  margin-top: 20px;
+  background: $main2;
   color: $light;
+  margin: 10px 0;
 
   &:hover {
     filter: brightness(1.1);
     transform: translateY(-2px);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: none;
+    transform: none;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  .gold {
+    color: $gold;
+    &:after {
+      content: '';
+    }
+  }
+}
+
+.buttoncont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 </style>

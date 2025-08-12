@@ -1,18 +1,21 @@
 <template>
   <div class="container">
-    <div class="title" v-if="state == 0">
-      {{ $t('generate.title') }}
-      <span class="gold">
-        <ic icon="wand-magic-sparkles" />
-      </span>
-    </div>
+    <!-- Form -->
+
     <Form @generate="handleGenerate" v-if="state == 0" />
+
+    <!-- Wait  -->
     <Wait v-if="state == 1" />
+
+    <!-- Success -->
+
     <Success
       v-if="state == 2 && projects.length >= 1"
       :projects="projects"
       @regenerate="handleRegenerate"
     />
+
+    <!-- Error -->
     <Error v-if="state == 3 && error" :error="error" />
   </div>
 </template>
@@ -120,9 +123,8 @@ export default defineComponent({
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-}
-
-.gold {
-  color: $gold;
+  .gold {
+    color: $gold;
+  }
 }
 </style>

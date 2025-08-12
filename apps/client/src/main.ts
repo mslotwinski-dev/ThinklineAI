@@ -7,6 +7,7 @@ import App from './App.vue'
 import VueSmoothScroll from 'vue3-smooth-scroll'
 import scrollsettings from './config/scroll'
 import FontAwesomeIcon from './config/icons'
+import Notifications from '@kyvg/vue3-notification'
 
 import router from './router'
 const pinia = createPinia()
@@ -34,6 +35,7 @@ import './config/registerServiceWorker'
 createApp(App)
   .component('ic', FontAwesomeIcon)
   .use(VueSmoothScroll, scrollsettings)
+  .use(Notifications)
   .use(i18n)
   .use(pinia)
   .use(router)

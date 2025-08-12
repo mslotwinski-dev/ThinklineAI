@@ -81,11 +81,23 @@
       }
     },
     "waiting": "",
-    "error": ""
+    "error": "",
+    "lfse": "",
+    "regenerate": "",
+    "success": "",
+    "success_description": "",
+    "done": "",
+    "projects": ""
   },
   "project": {
     "tech_stack": "",
     "tags": "",
     "estimated_time": ""
+  },
+  "projects": {
+    "hello": "",
+    "description": "",
+    "empty": "",
+    "addmore": ""
   }
 }

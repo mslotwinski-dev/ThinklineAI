@@ -1,4 +1,10 @@
 <template>
+  <div class="title">
+    {{ $t('generate.title') }}
+    <span class="gold">
+      <ic icon="wand-magic-sparkles" />
+    </span>
+  </div>
   <form class="box" @submit.prevent="generate">
     <p class="desc">
       {{ $t('generate.description') }}
@@ -96,6 +102,7 @@ export default defineComponent({
       })
     },
   },
+  emits: ['generate'],
 })
 </script>
 
@@ -171,5 +178,15 @@ label {
 
 .color {
   color: $main;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  .gold {
+    color: $gold;
+  }
 }
 </style>

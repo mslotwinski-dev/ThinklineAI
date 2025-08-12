@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-
+    <notifications position="bottom left" width="400px" />
     <router-view />
   </div>
 </template>
