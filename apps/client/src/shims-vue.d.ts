@@ -5,4 +5,10 @@ declare module '*.vue' {
   export default component
 }
 
-declare module 'd3-parliament-chart'
+import VueRouter, { Route } from 'vue-router'
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $router: VueRouter
+  }
+}

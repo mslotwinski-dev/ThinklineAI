@@ -59,5 +59,18 @@ export const useProjectsStore = defineStore('projects', {
       this.loadFromLocalStorage()
       return this.projects
     },
+
+    // <-- AI -->
+
+    set_color(project: Project, color: string) {
+      this.loadFromLocalStorage()
+
+      const p = this.projects.find((p) => p.ID === project.ID)
+      if (p) {
+        p.color = color
+      }
+
+      this.saveToLocalStorage()
+    },
   },
 })

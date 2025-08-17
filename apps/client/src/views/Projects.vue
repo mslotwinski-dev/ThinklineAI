@@ -16,7 +16,11 @@
         v-for="project in projects"
         :key="project.id"
       >
-        <div class="project" @click="$router.push('/projects/' + project.ID)">
+        <div
+          class="project"
+          @click="$router.push('/projects/' + project.ID)"
+          :style="{ boxShadow: `0 2px 0px ${project.color || '#2e4057'}` }"
+        >
           <div class="name" v-html="project.name"></div>
           <div class="tags">
             <div
@@ -99,6 +103,8 @@ export default defineComponent({
   .name {
     font-size: 16px;
   }
+
+  border: 1px solid transparent;
 
   .tags {
     display: flex;

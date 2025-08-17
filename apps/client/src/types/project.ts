@@ -6,6 +6,10 @@ export interface Project {
   difficulty: number
   tags: string[]
   estimated_time: number
+
+  // <-- AI GENERATED -->
+
+  color?: string
 }
 
 export interface GenerateData {
