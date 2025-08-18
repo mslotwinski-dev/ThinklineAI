@@ -4,24 +4,18 @@
       <div class="section">
         <span class="bar" :style="{ background: project.color || '#2e4057' }" />
         <div>
-          <div class="header" v-html="$t('project.sections.monetization')" />
-          <div class="box centered h500">A</div>
-        </div>
-      </div>
-    </div>
-    <div class="column between">
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.market')" />
-          <div class="box centered h300">A</div>
+          <div class="header" v-html="$t('project.sections.acquired_skills')" />
+          <div class="box centered h200">A</div>
         </div>
       </div>
       <div class="section">
         <span class="bar" :style="{ background: project.color || '#2e4057' }" />
         <div>
-          <div class="header" v-html="$t('project.sections.social_impact')" />
-          <div class="box centered h150">A</div>
+          <div
+            class="header"
+            v-html="$t('project.sections.further_development')"
+          />
+          <div class="box centered h200">A</div>
         </div>
       </div>
     </div>

@@ -92,7 +92,45 @@
   "project": {
     "tech_stack": "Technologie",
     "tags": "Cechy projektu",
-    "estimated_time": "Przewidywany czas"
+    "estimated_time": "Przewidywany czas",
+    "sections": {
+      "summary": "Podsumowanie",
+      "description": "Opis projektu",
+      "target": "Grupa docelowa",
+      "inspiration": "Inspiracje",
+      "notes": "Uwagi",
+      "monetization": "Modele monetyzacji",
+      "market": "Potencjał rynkowy",
+      "social_impact": "Wpływ społeczny",
+      "basicfunctions": "Podstawowe funkcje",
+      "extensions": "Rozszerzenia",
+      "integrations": "Potencjalne integracje",
+      "roadmap": "Plan rozwoju",
+      "interface": "Interfejs",
+      "acquired_skills": "Nabyte umiejętności",
+      "further_development": "Dalszy rozwój",
+      "threats": "Potencjalne zagrożenia",
+      "monitoring": "Monitoring i Logowanie",
+      "data_security": "Bezpieczeństwo danych",
+      "access": "Zarządzanie dostępem",
+      "usecases": "Sceniariusze użycia",
+      "patterns": "Wzorce projektowe",
+      "testing": "Testowanie",
+      "scalability": "Skalowalność",
+      "stack": "Stack technologiczny",
+      "tools": "Narzędzia",
+      "architecture": "Schemat architektury",
+      "deployment": "Deployment"
+    },
+    "buttons": {
+      "basics": "Podstawy",
+      "functionalities": "Funkcjonalności",
+      "technologies": "Technologie",
+      "software": "Oprogramowanie",
+      "business": "Biznes",
+      "security": "Bezpieczeństwo",
+      "growth": "Rozwój"
+    }
   },
   "projects": {
     "hello": "Nie za ambitnie?",

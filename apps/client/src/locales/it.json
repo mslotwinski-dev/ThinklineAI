@@ -92,7 +92,45 @@
   "project": {
     "tech_stack": "",
     "tags": "",
-    "estimated_time": ""
+    "estimated_time": "",
+    "sections": {
+      "summary": "",
+      "description": "",
+      "target": "",
+      "inspiration": "",
+      "notes": "",
+      "monetization": "",
+      "market": "",
+      "social_impact": "",
+      "basicfunctions": "",
+      "extensions": "",
+      "integrations": "",
+      "roadmap": "",
+      "interface": "",
+      "acquired_skills": "",
+      "further_development": "",
+      "threats": "",
+      "monitoring": "",
+      "data_security": "",
+      "access": "",
+      "usecases": "",
+      "patterns": "",
+      "testing": "",
+      "scalability": "",
+      "stack": "",
+      "tools": "",
+      "architecture": "",
+      "deployment": ""
+    },
+    "buttons": {
+      "basics": "",
+      "functionalities": "",
+      "technologies": "",
+      "software": "",
+      "business": "",
+      "security": "",
+      "growth": ""
+    }
   },
   "projects": {
     "hello": "",
