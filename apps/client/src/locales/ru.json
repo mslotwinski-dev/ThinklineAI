@@ -135,6 +135,10 @@
       "none": "",
       "generate": "",
       "button": ""
+    },
+    "usecases": {
+      "actor": "",
+      "goal": ""
     }
   },
   "projects": {

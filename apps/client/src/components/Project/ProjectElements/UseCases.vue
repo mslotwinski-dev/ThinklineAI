@@ -15,11 +15,13 @@
         </div>
       </div>
 
-      <ol class="flow">
-        <li v-for="(step, index) in usecase.flow" :key="index">
-          {{ step }}
-        </li>
-      </ol>
+      <div class="flex">
+        <ol class="flow">
+          <li v-for="(step, index) in usecase.flow" :key="index">
+            {{ step }}
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
   <form class="none" v-else>
@@ -41,11 +43,15 @@ export default defineComponent({
       type: Array as () => UseCase[],
       default: () => [
         // {
-        //   name: 'Default Use Case',
-        //   actor: 'a',
-        //   goal: 'b',
-        //   flow: ['a', 'b', 'c', 'd', 'e'],
-        //   exceptions: ['x', 'y', 'z'],
+        //   name: 'Otworzenie gry',
+        //   actor: 'Gracz',
+        //   goal: 'Rozpoczęcie nowej gry',
+        //   flow: [
+        //     'Uruchomienie aplikacji',
+        //     'Utworzenie nowego zapisu',
+        //     'Wybór poziomu trudności',
+        //     'Rozpoczęcie rozgrywki',
+        //   ],
         // },
       ],
     },
