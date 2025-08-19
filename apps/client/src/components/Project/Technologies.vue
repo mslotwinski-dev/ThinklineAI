@@ -1,43 +1,39 @@
 <template>
-  <div class="global-project-page">
-    <div class="column grow">
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.stack')" />
-          <div class="box centered h250">A</div>
-        </div>
-      </div>
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.tools')" />
-          <div class="box centered h200">A</div>
-        </div>
-      </div>
-    </div>
-    <div class="column between">
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.architecture')" />
-          <div class="box centered h350">A</div>
-        </div>
-      </div>
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.deployment')" />
-          <div class="box centered h150">A</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Body>
+    <Column class="grow">
+      <Section :color="project.color" :head="$t('project.sections.stack')">
+        <Box :size="250" :content="project.stack" />
+      </Section>
+
+      <Section :color="project.color" :head="$t('project.sections.tools')">
+        <Box :size="200" :content="project.tools" />
+      </Section>
+    </Column>
+
+    <Column>
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.architecture')"
+      >
+        <Box :size="350" :content="project.architecture" />
+      </Section>
+
+      <Section :color="project.color" :head="$t('project.sections.deployment')">
+        <Box :size="150" :content="project.deployment" />
+      </Section>
+    </Column>
+  </Body>
 </template>
 
 <script lang="ts">
-import { Project } from '@/types/project'
 import { defineComponent } from 'vue'
+
+import Body from '@/components/Project/ProjectElements/Body.vue'
+import Column from '@/components/Project/ProjectElements/Column.vue'
+import Section from '@/components/Project/ProjectElements/Section.vue'
+import Box from '@/components/Project/ProjectElements/Box.vue'
+
+import { Project } from '@/types/project'
 
 export default defineComponent({
   props: {
@@ -46,7 +42,11 @@ export default defineComponent({
       required: true,
     },
   },
+  components: {
+    Body,
+    Column,
+    Section,
+    Box,
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>

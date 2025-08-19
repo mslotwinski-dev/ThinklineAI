@@ -1,36 +1,38 @@
 <template>
-  <div class="global-project-page">
-    <div class="column grow">
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.monetization')" />
-          <div class="box centered h500">A</div>
-        </div>
-      </div>
-    </div>
-    <div class="column between">
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.market')" />
-          <div class="box centered h300">A</div>
-        </div>
-      </div>
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.social_impact')" />
-          <div class="box centered h150">A</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Body>
+    <Column class="grow">
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.monetization')"
+      >
+        <Box :size="500" :content="project.monetization" />
+      </Section>
+    </Column>
+
+    <Column>
+      <Section :color="project.color" :head="$t('project.sections.market')">
+        <Box :size="300" :content="project.market" />
+      </Section>
+
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.social_impact')"
+      >
+        <Box :size="150" :content="project.social_impact" />
+      </Section>
+    </Column>
+  </Body>
 </template>
 
 <script lang="ts">
-import { Project } from '@/types/project'
 import { defineComponent } from 'vue'
+
+import Body from '@/components/Project/ProjectElements/Body.vue'
+import Column from '@/components/Project/ProjectElements/Column.vue'
+import Section from '@/components/Project/ProjectElements/Section.vue'
+import Box from '@/components/Project/ProjectElements/Box.vue'
+
+import { Project } from '@/types/project'
 
 export default defineComponent({
   props: {
@@ -39,7 +41,11 @@ export default defineComponent({
       required: true,
     },
   },
+  components: {
+    Body,
+    Column,
+    Section,
+    Box,
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>

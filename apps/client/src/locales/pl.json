@@ -130,6 +130,11 @@
       "business": "Biznes",
       "security": "Bezpieczeństwo",
       "growth": "Rozwój"
+    },
+    "content": {
+      "none": "Brak sekcji",
+      "generate": "Czy chcesz ją wygenerować za pomocą AI?",
+      "button": "Generuj"
     }
   },
   "projects": {

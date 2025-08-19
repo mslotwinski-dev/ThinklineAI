@@ -1,62 +1,47 @@
 <template>
-  <div class="global-project-page">
-    <div class="column grow">
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-        <div>
-          <div class="header" v-html="$t('project.sections.summary')" />
-          <div class="box centered h100"></div>
-        </div>
-      </div>
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
+  <Body>
+    <Column class="grow">
+      <Section :color="project.color" :head="$t('project.sections.summary')">
+        <Box :size="100" :content="project.summary" />
+      </Section>
 
-        <div>
-          <div class="header" v-html="$t('project.sections.description')" />
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.description')"
+      >
+        <Box :size="400" :content="project.long_desc" />
+      </Section>
+    </Column>
 
-          <div class="box centered h200">A</div>
-        </div>
-      </div>
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
+    <Column>
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.inspiration')"
+      >
+        <List :array="project.inspirations" />
+      </Section>
 
-        <div>
-          <div class="header" v-html="$t('project.sections.target')" />
-          <div class="box centered h150">A</div>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
+      <Section :color="project.color" :head="$t('project.sections.target')">
+        <Box :size="100" :content="project.target" />
+      </Section>
 
-        <div>
-          <div class="header" v-html="$t('project.sections.inspiration')" />
-
-          <ul>
-            <li>Projekt 1</li>
-            <li>Projekt 2</li>
-            <li>Projekt 3</li>
-            <li>Projekt 4</li>
-          </ul>
-        </div>
-      </div>
-      <div class="section">
-        <span class="bar" :style="{ background: project.color || '#2e4057' }" />
-
-        <div>
-          <div class="header" v-html="$t('project.sections.notes')" />
-
-          <div class="box centered h300">A</div>
-        </div>
-      </div>
-    </div>
-  </div>
+      <Section :color="project.color" :head="$t('project.sections.notes')">
+        <Box :size="150" :content="project.notes" />
+      </Section>
+    </Column>
+  </Body>
 </template>
 
 <script lang="ts">
-import { Project } from '@/types/project'
 import { defineComponent } from 'vue'
+
+import Body from '@/components/Project/ProjectElements/Body.vue'
+import Column from '@/components/Project/ProjectElements/Column.vue'
+import Section from '@/components/Project/ProjectElements/Section.vue'
+import Box from '@/components/Project/ProjectElements/Box.vue'
+import List from '@/components/Project/ProjectElements/List.vue'
+
+import { Project } from '@/types/project'
 
 export default defineComponent({
   props: {
@@ -65,7 +50,12 @@ export default defineComponent({
       required: true,
     },
   },
+  components: {
+    Body,
+    Column,
+    Section,
+    Box,
+    List,
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>
