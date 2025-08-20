@@ -12,7 +12,7 @@
       <Section
         :color="project.color"
         :head="$t('project.sections.description')"
-        @submit.prevent="req('description')"
+        @submit.prevent="req('long_desc')"
       >
         <Box :size="400" :content="project.long_desc" />
       </Section>
@@ -83,6 +83,7 @@ export default defineComponent({
     req(str: string) {
       this.service.request(str).then((project) => {
         if (project) {
+          // console.log(project)
           useProjectsStore().update_project(project.ID, project)
           this.$emit('reload', project)
         }

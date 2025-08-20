@@ -1,4 +1,4 @@
-from requesttypes import ProjectRequest
+from models.generate import ProjectRequest
 from typing import List
 
 

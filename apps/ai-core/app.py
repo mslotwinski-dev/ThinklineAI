@@ -1,11 +1,13 @@
-from helpers import extract_json_from_text
-from requesttypes import ProjectRequest, ProjectResponse
-from prompt_builder import generate_prompt, regenerate_prompt
-from openrouter import ask_openrouter
 from fastapi import FastAPI, HTTPException
-
 from typing import List, Dict
 import json
+
+from models.generate import ProjectRequest, ProjectResponse
+from utility.json import extract_json_from_text
+from models.project import Project
+from prompts.generate import generate_prompt
+from prompts.project import project_prompt
+from services.openrouter import ask_openrouter
 
 
 app = FastAPI()
@@ -39,3 +41,20 @@ async def generate_idea(data: ProjectRequest):
         print(f"Unexpected error: {str(e)}")
         raise HTTPException(
             status_code=500, detail=f"Unexpected error: {str(e)}")
+
+
+@app.post("/project/{field}")
+async def generate_field(field: str, data: Project):
+    if field not in Project.model_fields.keys():
+        raise HTTPException(status_code=400, detail=f"Nieznane pole: {field}")
+
+    prompt = project_prompt(field, data.model_dump())
+
+    try:
+        raw_text = await ask_openrouter(prompt)
+        return {field: raw_text.strip()}
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Błąd generowania pola {field}: {str(e)}"
+        )

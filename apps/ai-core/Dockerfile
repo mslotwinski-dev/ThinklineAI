@@ -13,7 +13,7 @@ COPY requirements.txt ./
 COPY . .
 ENV APP_ENV=development
 EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
 # --- ETAP 3: Środowisko Produkcyjne (production) ---
 FROM python:3.11-slim AS production
@@ -23,4 +23,4 @@ COPY --from=builder /usr/local/bin/ /usr/local/bin/
 COPY . .
 ENV APP_ENV=production
 EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8000"]
