@@ -2,7 +2,11 @@
   <Body>
     <Column class="grow">
       <Section :color="project.color" :head="$t('project.sections.summary')">
-        <Box :size="100" :content="project.summary" />
+        <Box
+          :size="100"
+          :content="project.summary"
+          @submit.prevent="req('summary')"
+        />
       </Section>
 
       <Section
@@ -41,6 +45,8 @@ import Section from '@/components/Project/ProjectElements/Section.vue'
 import Box from '@/components/Project/ProjectElements/Box.vue'
 import List from '@/components/Project/ProjectElements/List.vue'
 
+import { useProjectsStore } from '@/store/projects'
+import { RequestService } from '@/types/service'
 import { Project } from '@/types/project'
 
 export default defineComponent({
@@ -56,6 +62,22 @@ export default defineComponent({
     Section,
     Box,
     List,
+  },
+  data() {
+    return {
+      service: new RequestService(this.project),
+    }
+  },
+  emits: ['reload'],
+  methods: {
+    req(str: string) {
+      this.service.request(str).then((project) => {
+        if (project) {
+          useProjectsStore().update_project(project.ID, project)
+          this.$emit('reload', project)
+        }
+      })
+    },
   },
 })
 </script>

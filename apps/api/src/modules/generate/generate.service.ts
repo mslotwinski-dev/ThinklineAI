@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable, Inject } from '@nestjs/common'
 import type { AxiosInstance } from 'axios'
-import * as generateTypes from './generate.types'
+import { GenerateResponse, GenerateData, Project } from './generate.types'
 
 function randomString(length = 12) {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -18,55 +18,40 @@ function randomString(length = 12) {
 export class GenerateService {
   constructor(@Inject('AI_CORE_CLIENT') private readonly http: AxiosInstance) {}
 
-  async generate(
-    body: generateTypes.GenerateData
-  ): Promise<generateTypes.Project[]> {
+  private async callAI(
+    path: string,
+    body: GenerateData,
+    assignIds = false
+  ): Promise<Project[]> {
     try {
-      const response = await this.http.post<generateTypes.GenerateResponse>(
-        '/generate',
-        body,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      const response = await this.http.post<GenerateResponse>(path, body, {
+        headers: { 'Content-Type': 'application/json' },
+      })
 
       const ideas = response.data.ideas
 
-      for (const idea of ideas) {
-        idea.ID = randomString()
+      if (assignIds) {
+        for (const idea of ideas) {
+          idea.ID = randomString()
+        }
       }
 
       return ideas
     } catch (error) {
       throw new HttpException(
-        `Failed to communicate with AI service: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        `Failed to communicate with AI service: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`,
         HttpStatus.BAD_GATEWAY
       )
     }
   }
 
-  async regenerate(
-    body: generateTypes.GenerateData
-  ): Promise<generateTypes.Project[]> {
-    try {
-      const response = await this.http.post<generateTypes.GenerateResponse>(
-        '/regenerate',
-        body,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+  generate(body: GenerateData): Promise<Project[]> {
+    return this.callAI('/generate', body, true)
+  }
 
-      return response.data.ideas
-    } catch (error) {
-      throw new HttpException(
-        `Failed to communicate with AI service: ${error instanceof Error ? error.message : 'Unknown error'}`,
-        HttpStatus.BAD_GATEWAY
-      )
-    }
+  regenerate(body: GenerateData): Promise<Project[]> {
+    return this.callAI('/regenerate', body)
   }
 }

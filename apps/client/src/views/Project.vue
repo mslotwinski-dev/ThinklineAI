@@ -1,6 +1,6 @@
 <template>
   <div class="container" v-if="display">
-    <Header :project="project" @reload="reloadProject" />
+    <Header :project="project" @reload="reload" />
 
     <div class="tabs">
       <div
@@ -23,13 +23,13 @@
     </div>
 
     <section>
-      <Basics v-if="mode == 0" :project="project" />
-      <Functionalities v-if="mode == 1" :project="project" />
-      <Technologies v-if="mode == 2" :project="project" />
-      <Software v-if="mode == 3" :project="project" />
-      <Business v-if="mode == 4" :project="project" />
-      <Security v-if="mode == 5" :project="project" />
-      <Growth v-if="mode == 6" :project="project" />
+      <Basics v-if="mode == 0" :project="project" @reload="reload" />
+      <Functionalities v-if="mode == 1" :project="project" @reload="reload" />
+      <Technologies v-if="mode == 2" :project="project" @reload="reload" />
+      <Software v-if="mode == 3" :project="project" @reload="reload" />
+      <Business v-if="mode == 4" :project="project" @reload="reload" />
+      <Security v-if="mode == 5" :project="project" @reload="reload" />
+      <Growth v-if="mode == 6" :project="project" @reload="reload" />
     </section>
   </div>
   <div class="container" v-else>
@@ -93,7 +93,7 @@ export default defineComponent({
     Growth,
   },
   methods: {
-    reloadProject() {
+    reload() {
       this.display = false
       const project = useProjectsStore()
         .read()
@@ -107,7 +107,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.reloadProject()
+    this.reload()
   },
 })
 </script>

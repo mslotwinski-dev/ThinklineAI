@@ -72,5 +72,16 @@ export const useProjectsStore = defineStore('projects', {
 
       this.saveToLocalStorage()
     },
+
+    update_project(id: string, newProject: Project) {
+      this.loadFromLocalStorage()
+
+      const index = this.projects.findIndex((p) => p.ID === id)
+      if (index !== -1) {
+        this.projects[index] = newProject
+      }
+
+      this.saveToLocalStorage()
+    },
   },
 })
