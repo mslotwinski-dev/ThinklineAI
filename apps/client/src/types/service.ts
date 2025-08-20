@@ -2,6 +2,7 @@ import { notify } from '@kyvg/vue3-notification'
 import ax, { AxiosInstance } from 'axios'
 
 import axios from '@/config/axios'
+import { useProjectsStore } from '@/store/projects'
 import { Project } from './project'
 
 export class RequestService {
@@ -23,6 +24,8 @@ export class RequestService {
       )
 
       this.project = response.data
+      useProjectsStore().update_project(this.project.ID, response.data)
+
       return response.data
     } catch (error) {
       let message = 'Unknown error'

@@ -1,4 +1,5 @@
 <template>
+  <Loading v-if="loading" />
   <Body>
     <Column class="grow">
       <Section
@@ -54,8 +55,8 @@ import Column from '@/components/Project/ProjectElements/Column.vue'
 import Section from '@/components/Project/ProjectElements/Section.vue'
 import Box from '@/components/Project/ProjectElements/Box.vue'
 import List from '@/components/Project/ProjectElements/List.vue'
+import Loading from '@/components/Project/ProjectElements/Loading.vue'
 
-import { useProjectsStore } from '@/store/projects'
 import { RequestService } from '@/types/service'
 import { Project } from '@/types/project'
 
@@ -72,20 +73,22 @@ export default defineComponent({
     Section,
     Box,
     List,
+    Loading,
   },
   data() {
     return {
       service: new RequestService(this.project),
+      loading: false,
     }
   },
   emits: ['reload'],
   methods: {
     req(str: string) {
+      this.loading = true
       this.service.request(str).then((project) => {
         if (project) {
-          // console.log(project)
-          useProjectsStore().update_project(project.ID, project)
           this.$emit('reload', project)
+          this.loading = false
         }
       })
     },

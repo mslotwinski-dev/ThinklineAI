@@ -7,191 +7,52 @@ Your task is to generate text based on the provided input data and a specific ta
 Your response MUST adhere to the following rules:
 - Your response MUST be in English.
 - Generate only the requested text. Do not include any conversational introductions, summaries, or concluding remarks (e.g., "Here is the summary...", "I hope this helps!").
-- Use clear, professional, and objective language.
-- DO NOT USE emojis. Use simple formatting like bullet points or bold text only when it enhances readability and structure.
+- Use clear, and objective language.
+- DO NOT USE emojis and DO NOT USE formatting. Even simple formatting like bullet points or bold text are not allowed. Only exception is enter sign.
+- DO NOT USE project ID in response.
 """
 
 DETAILED_TEMPLATES = {
-    "summary": """
-    Write a concise project summary (max 100 words).
-    Structure the response as follows:
-    1.  **Project Mission:** A single sentence explaining the core purpose.
-    2.  **Key Features:** A bulleted list of the 3-5 main features.
-    3.  **Core Value:** A concluding sentence on the primary problem it solves for users.
+    "summary": "Write a concise summary for the project. Include purpose, key features, and main goal. Max 80 words.",
+    "long_desc": "Generate a detailed project description including everything you should know about the project. Should be around 250 words.",
+    "inspirations": "List inspirations and references that influenced the project. PROVIDE A JSON ARRAY with 1-3 names of REAL PROJECTS FROM GITHUB you can reference.",
+    "target": "Describe the target audience. Max 35 words.",
+    "notes": "Provide important notes, dependencies, or special instructions about the project. Max 45 words.",
+
+    "basic_functions": "Explain the basic functions and operations of the project. Everything to know about the project's functionality. Around 120 words.",
+    "extensions": "Suggest possible extensions, new features, or improvements for the project. Around 120 words.",
+    "integrations": "List potential integrations with external services, APIs, or tools and explain their usefulness. Around 50 words.",
+    "roadmap": "Create a roadmap including phases, milestones, priorities, and estimated timelines. Max 135 words.",
+    "interface": "Describe the UI and UI theme. Max 35 words.",
+
+    "stack": "Explain the technology stack including frontend, backend, database, libraries, etc. Around 150 words.",
+    "tools": "List tools and utilities supporting the project. Around 120 words.",
+    "architecture": "Describe overall architecture and folder structure of project. Around 80 words.",
+    "deployment": "Explain deployment strategies, environments, and configurations. Max 40 words.",
+
+    "usecases": """Provide 3-4 possible use cases. Use cases should be array of objects in JSON format. UseCase object should look like that:
+        {
+            name: string
+            actor: string
+            goal: string
+            flow: string[] // 3-4 short steps
+        }
     """,
-    "long_desc": """
-    Generate a comprehensive project description.
-    Divide the response into the following sections using bold headers:
-    - **Introduction:** A brief overview of the project and its purpose.
-    - **Scope & Features:** A detailed, bulleted list of all major functionalities.
-    - **Technology Stack Overview:** A high-level summary of the technologies used.
-    - **Target Audience:** A description of the ideal users.
-    - **Expected Outcomes:** The primary goals and measurable results of the project.
-    """,
-    "inspirations": """
-    List the inspirations and key references that influenced this project.
-    For each item, provide a brief explanation of its relevance and impact.
-    Format as a bulleted list:
-    - **[Inspiration Name/Source]:** [Brief explanation of its influence].
-    """,
-    "target": """
-    Create a detailed description of the target audience.
-    Include these sections with bold headers:
-    - **Primary Audience:** Describe the main user group, their needs, and technical proficiency.
-    - **User Personas:** Provide 1-2 brief examples of typical users, including their goals and pain points.
-    - **Project Goals for Users:** List the key objectives the project helps users achieve.
-    """,
-    "notes": """
-    Provide a list of important notes, dependencies, or special instructions for the project.
-    Categorize them if possible (e.g., Technical Notes, Setup Instructions, API Keys).
-    """,
-    "basic_functions": """
-    Explain the basic functions and core operations of the project in a step-by-step manner.
-    Focus on the main user workflow from start to finish. Use a numbered list.
-    """,
-    "extensions": """
-    Suggest three potential extensions, new features, or improvements for the project.
-    For each suggestion, provide a brief rationale explaining the value it would add.
-    Format as a bulleted list:
-    - **[Feature Name]:** [Rationale].
-    """,
-    "integrations": """
-    List potential integrations with external services, APIs, or tools.
-    For each integration, explain its purpose and benefits in the context of this project.
-    - **[Service/API Name]:** [Purpose and benefit].
-    """,
-    "roadmap": """
-    Create a high-level project roadmap.
-    Structure it by phases, including the objective, key deliverables, and an estimated timeline for each.
-    Example Format:
-    - **Phase 1: MVP (Months 1-3)**
-        - **Objective:** Launch a core, functional product.
-        - **Key Deliverables:** [List 3-4 key features].
-    - **Phase 2: Feature Expansion (Months 4-9)**
-        - **Objective:** Enhance user experience and add secondary features.
-        - **Key Deliverables:** [List 3-4 key features].
-    """,
-    "interface": """
-    Describe the User Interface (UI) and User Experience (UX) design.
-    Cover the following points:
-    - **Layout & Navigation:** How is the interface structured?
-    - **Design Philosophy:** What are the core principles (e.g., minimalist, data-driven, mobile-first)?
-    - **Key UI Components:** Mention any unique or critical interface elements.
-    """,
-    "stack": """
-    Detail the project's technology stack.
-    For each category below, list the technologies and provide a brief (1-sentence) rationale for its selection:
-    - **Frontend:**
-    - **Backend:**
-    - **Database:**
-    - **DevOps/Infrastructure:**
-    - **Key Libraries/Frameworks:**
-    """,
-    "tools": """
-    List the development tools, utilities, and platforms that support the project.
-    Group them by category:
-    - **Version Control:**
-    - **Project Management:**
-    - **CI/CD:**
-    - **Communication:**
-    """,
-    "architecture": """
-    Describe the system's software architecture.
-    Your response should cover:
-    1.  **Architectural Pattern:** Name the primary pattern used (e.g., Monolithic, Microservices, MVC, Serverless).
-    2.  **Core Components:** List the main modules/services and their responsibilities.
-    3.  **Data Flow:** Briefly explain how data moves through the system for a key use case.
-    """,
-    "deployment": """
-    Explain the project's deployment strategy.
-    Address the following points:
-    - **Environments:** (e.g., Development, Staging, Production).
-    - **Deployment Process:** How is new code deployed (e.g., CI/CD pipeline, manual deployment)?
-    - **Hosting Platform:** Where is the application hosted (e.g., AWS, Vercel, on-premise)?
-    """,
-    "usecases": """
-    Provide a list of key use cases and user scenarios.
-    For each use case, define the actor, the action, and the expected outcome.
-    Format:
-    - **Use Case:** [Brief name, e.g., User Registration].
-        - **Actor:** [e.g., New User].
-        - **Action:** [e.g., Fills out the registration form and submits it].
-        - **Outcome:** [e.g., A user account is created and a confirmation email is sent].
-    """,
-    "patterns": """
-    List relevant design patterns and best practices applied in the project.
-    For each pattern, briefly explain where and why it was used.
-    Example:
-    - **Singleton Pattern:** Used for managing the database connection pool to ensure only one instance exists.
-    """,
-    "testing": """
-    Explain the project's testing strategy.
-    Describe the purpose of each type of test within this project:
-    - **Unit Tests:**
-    - **Integration Tests:**
-    - **End-to-End (E2E) Tests:**
-    - **Key Testing Libraries/Tools:**
-    """,
-    "scalability": """
-    Describe how the project is designed to scale.
-    Include the following aspects:
-    - **Scalability Strategy:** (e.g., Horizontal scaling of servers, database read replicas).
-    - **Potential Bottlenecks:** Identify 1-2 areas that might become performance issues under heavy load.
-    - **Performance Metrics:** List key metrics used to monitor performance.
-    """,
-    "monetization": """
-    Suggest potential monetization strategies for the project.
-    Provide at least two distinct models and briefly describe them.
-    - **Model 1:** [e.g., Subscription-based (SaaS) with tiered pricing].
-    - **Model 2:** [e.g., Freemium with optional paid features].
-    """,
-    "market": """
-    Provide a brief market analysis.
-    Structure the response with these headers:
-    - **Target Market:** A summary of the market size and segment.
-    - **Key Competitors:** List 2-3 main competitors and their key weakness.
-    - **Competitive Advantage:** What makes this project unique or better?
-    """,
-    "social_impact": """
-    Describe the project's potential social impact and any ethical considerations.
-    - **Positive Impact:** How can the project benefit the community or society?
-    - **Ethical Considerations:** Are there any data privacy, bias, or other ethical issues to consider?
-    """,
-    "threats": """
-    Identify potential threats and risks for the project.
-    List 2-3 examples for each category:
-    - **Technical Risks:** (e.g., security vulnerabilities, data loss).
-    - **Business Risks:** (e.g., low user adoption, market competition).
-    - **Operational Risks:** (e.g., loss of key personnel, budget overruns).
-    """,
-    "monitoring": """
-    Explain the monitoring, logging, and observability strategy.
-    - **Key Metrics to Monitor:** (e.g., API response time, error rate, CPU utilization).
-    - **Logging Strategy:** What information will be logged?
-    - **Tools:** What tools will be used (e.g., Prometheus, Grafana, Sentry)?
-    """,
-    "data_security": """
-    Describe the data security measures implemented in the project.
-    Cover these areas:
-    - **Data Encryption:** (e.g., at rest and in transit).
-    - **Authentication & Authorization:** How are users authenticated?
-    - **Best Practices:** Mention any specific security practices followed (e.g., OWASP Top 10).
-    """,
-    "access": """
-    Explain the user access control model.
-    - **User Roles:** List the different user roles (e.g., Admin, Editor, Viewer).
-    - **Permissions:** Describe what actions each role is permitted to perform.
-    """,
-    "acquired_skills": """
-    List the key skills and knowledge that can be acquired by working on this project.
-    Group them into categories:
-    - **Technical Skills:** (e.g., specific languages, frameworks, cloud services).
-    - **Soft Skills:** (e.g., project management, teamwork, problem-solving).
-    """,
-    "further_development": """
-    Suggest directions for the project's future development.
-    Provide a list of 3-5 high-level ideas for future versions or related projects that could build upon this one.
-    """,
+    "patterns": "List relevant design patterns and best practices, and how each is applied. Around 60 words.",
+    "testing": "Explain testing strategies, including unit, integration, and end-to-end tests. Around 40 words.",
+    "scalability": "Describe how the project can scale, including performance considerations and potential bottlenecks. Around 40 words.",
+
+    "monetization": "Suggest monetization strategies including revenue streams and pricing models. Around 250 words.",
+    "market": "Provide market analysis, audience insights, competitors, and trends. Don't hesitate to criticize me if my product has poor market prospects. Around 90 words.",
+    "social_impact": "Describe social impact, ethical considerations, and community benefits. Around 40 words.",
+
+    "threats": "List potential threats, risks, and challenges. Max 220 words.",
+    "monitoring": "Explain monitoring, logging, and observability strategies including key metrics. Max 60 words.",
+    "data_security": "Describe data security measures including encryption, authentication, and best practices. Max 90 words.",
+    "access": "Explain user access controls, roles, and permissions. Max 40 words.",
+
+    "acquired_skills": "List skills and knowledge acquired by working on the project. Around 180 words.",
+    "further_development": "Suggest how I can further develop and what future projects I can implement to grow. Around 180 words.",
 }
 
 

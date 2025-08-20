@@ -28,6 +28,11 @@ export default defineComponent({
       default: '',
     },
   },
+  data() {
+    return {
+      loading: false,
+    }
+  },
 })
 </script>
 
@@ -41,6 +46,9 @@ export default defineComponent({
   margin-top: 12px;
   flex-grow: 1;
   font-size: 14.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .none {
@@ -64,6 +72,7 @@ export default defineComponent({
     font-size: 16px;
     max-width: 300px;
     padding: 5px 10px;
+    margin: 0 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: $main2;

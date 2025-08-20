@@ -15,7 +15,7 @@ export default defineComponent({})
   display: flex;
   flex-direction: column;
   gap: 30px;
-  min-width: 400px;
+  width: 400px;
   &.grow {
     flex-grow: 1;
   }

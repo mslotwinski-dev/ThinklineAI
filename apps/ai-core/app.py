@@ -52,7 +52,11 @@ async def generate_field(field: str, data: Project):
 
     try:
         raw_text = await ask_openrouter(prompt)
-        return {field: raw_text.strip()}
+        try:
+            parsed = json.loads(raw_text)
+        except json.JSONDecodeError:
+            parsed = raw_text.strip()
+        return {field: parsed}
     except Exception as e:
         raise HTTPException(
             status_code=500,
