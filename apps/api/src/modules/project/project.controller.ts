@@ -31,9 +31,9 @@ export class ProjectController {
     return this.projectService.notes(body)
   }
 
-  @Post('basicfunctions')
-  basicfunctions(@Body() body: Project) {
-    return this.projectService.basicfunctions(body)
+  @Post('basic_functions')
+  basic_functions(@Body() body: Project) {
+    return this.projectService.basic_functions(body)
   }
 
   @Post('extensions')

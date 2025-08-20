@@ -29,7 +29,7 @@ export interface Project {
 
   // <-- FUNCTIONS -->
 
-  basicfunctions?: string
+  basic_functions?: string
   extensions?: string
   integrations?: string
   roadmap?: string

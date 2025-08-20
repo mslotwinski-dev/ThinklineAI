@@ -1,11 +1,19 @@
 <template>
   <Body>
     <Column class="grow">
-      <Section :color="project.color" :head="$t('project.sections.stack')">
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.stack')"
+        @submit.prevent="req('stack')"
+      >
         <Box :size="250" :content="project.stack" />
       </Section>
 
-      <Section :color="project.color" :head="$t('project.sections.tools')">
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.tools')"
+        @submit.prevent="req('tools')"
+      >
         <Box :size="200" :content="project.tools" />
       </Section>
     </Column>
@@ -14,11 +22,16 @@
       <Section
         :color="project.color"
         :head="$t('project.sections.architecture')"
+        @submit.prevent="req('architecture')"
       >
         <Box :size="350" :content="project.architecture" />
       </Section>
 
-      <Section :color="project.color" :head="$t('project.sections.deployment')">
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.deployment')"
+        @submit.prevent="req('deployment')"
+      >
         <Box :size="150" :content="project.deployment" />
       </Section>
     </Column>
@@ -33,7 +46,9 @@ import Column from '@/components/Project/ProjectElements/Column.vue'
 import Section from '@/components/Project/ProjectElements/Section.vue'
 import Box from '@/components/Project/ProjectElements/Box.vue'
 
+import { useProjectsStore } from '@/store/projects'
 import { Project } from '@/types/project'
+import { RequestService } from '@/types/service'
 
 export default defineComponent({
   props: {
@@ -47,6 +62,22 @@ export default defineComponent({
     Column,
     Section,
     Box,
+  },
+  data() {
+    return {
+      service: new RequestService(this.project),
+    }
+  },
+  emits: ['reload'],
+  methods: {
+    req(str: string) {
+      this.service.request(str).then((project) => {
+        if (project) {
+          useProjectsStore().update_project(project.ID, project)
+          this.$emit('reload', project)
+        }
+      })
+    },
   },
 })
 </script>

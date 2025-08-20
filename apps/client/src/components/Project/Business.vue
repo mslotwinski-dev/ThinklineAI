@@ -4,19 +4,25 @@
       <Section
         :color="project.color"
         :head="$t('project.sections.monetization')"
+        @submit.prevent="req('monetization')"
       >
         <Box :size="500" :content="project.monetization" />
       </Section>
     </Column>
 
     <Column>
-      <Section :color="project.color" :head="$t('project.sections.market')">
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.market')"
+        @submit.prevent="req('market')"
+      >
         <Box :size="300" :content="project.market" />
       </Section>
 
       <Section
         :color="project.color"
         :head="$t('project.sections.social_impact')"
+        @submit.prevent="req('social_impact')"
       >
         <Box :size="150" :content="project.social_impact" />
       </Section>
@@ -32,7 +38,9 @@ import Column from '@/components/Project/ProjectElements/Column.vue'
 import Section from '@/components/Project/ProjectElements/Section.vue'
 import Box from '@/components/Project/ProjectElements/Box.vue'
 
+import { useProjectsStore } from '@/store/projects'
 import { Project } from '@/types/project'
+import { RequestService } from '@/types/service'
 
 export default defineComponent({
   props: {
@@ -46,6 +54,22 @@ export default defineComponent({
     Column,
     Section,
     Box,
+  },
+  data() {
+    return {
+      service: new RequestService(this.project),
+    }
+  },
+  emits: ['reload'],
+  methods: {
+    req(str: string) {
+      this.service.request(str).then((project) => {
+        if (project) {
+          useProjectsStore().update_project(project.ID, project)
+          this.$emit('reload', project)
+        }
+      })
+    },
   },
 })
 </script>

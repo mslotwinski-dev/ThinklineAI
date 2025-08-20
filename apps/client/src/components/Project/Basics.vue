@@ -1,17 +1,18 @@
 <template>
   <Body>
     <Column class="grow">
-      <Section :color="project.color" :head="$t('project.sections.summary')">
-        <Box
-          :size="100"
-          :content="project.summary"
-          @submit.prevent="req('summary')"
-        />
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.summary')"
+        @submit.prevent="req('summary')"
+      >
+        <Box :size="100" :content="project.summary" />
       </Section>
 
       <Section
         :color="project.color"
         :head="$t('project.sections.description')"
+        @submit.prevent="req('description')"
       >
         <Box :size="400" :content="project.long_desc" />
       </Section>
@@ -20,16 +21,25 @@
     <Column>
       <Section
         :color="project.color"
-        :head="$t('project.sections.inspiration')"
+        :head="$t('project.sections.inspirations')"
+        @submit.prevent="req('inspirations')"
       >
         <List :array="project.inspirations" />
       </Section>
 
-      <Section :color="project.color" :head="$t('project.sections.target')">
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.target')"
+        @submit.prevent="req('target')"
+      >
         <Box :size="100" :content="project.target" />
       </Section>
 
-      <Section :color="project.color" :head="$t('project.sections.notes')">
+      <Section
+        :color="project.color"
+        :head="$t('project.sections.notes')"
+        @submit.prevent="req('notes')"
+      >
         <Box :size="150" :content="project.notes" />
       </Section>
     </Column>

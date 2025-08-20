@@ -53,10 +53,10 @@ export class ProjectService {
     }
   }
 
-  async basicfunctions(project: Project): Promise<Project> {
+  async basic_functions(project: Project): Promise<Project> {
     return {
       ...project,
-      basicfunctions: await this.template<string>('basicfunctions', project),
+      basic_functions: await this.template<string>('basic_functions', project),
     }
   }
 
