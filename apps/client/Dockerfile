@@ -17,11 +17,9 @@ EXPOSE 3000
 CMD ["npm", "run", "serve"]
 
 # --- ETAP 3: Środowisko Produkcyjne ---
-FROM node:18-alpine AS production
-WORKDIR /app
-COPY package*.json ./
-RUN npm install --production
-COPY --from=builder /app/dist ./dist
-ENV NODE_ENV=production
-EXPOSE 3000
-CMD ["npm", "run", "start"]
+FROM nginx:alpine AS production
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]

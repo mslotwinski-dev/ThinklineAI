@@ -23,5 +23,5 @@ COPY package*.json ./
 RUN npm install --production
 COPY --from=builder /app/dist ./dist
 ENV NODE_ENV=production
-EXPOSE 5000
-CMD ["npm", "run", "start:prod"]
+EXPOSE 8080
+CMD ["node", "dist/main.js"]

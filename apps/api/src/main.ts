@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { ValidationPipe } from '@nestjs/common'
+import * as dotenv from 'dotenv'
 
 import { AppModule } from './app.module'
 import { AIFilter } from './filters/ai-filter'
@@ -7,8 +8,10 @@ import { AIFilter } from './filters/ai-filter'
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
+  dotenv.config()
+
   app.enableCors({
-    origin: ['http://localhost:8080', 'http://localhost:3000'],
+    origin: [process.env.CLIENT_URL, process.env.AI_CORE_URL],
     credentials: true,
   })
 
@@ -22,7 +25,9 @@ async function bootstrap() {
 
   app.useGlobalFilters(new AIFilter())
 
-  await app.listen(5000)
+  const port = process.env.PORT || 5000
+
+  await app.listen(port)
 }
 
 bootstrap().catch((err) => {
