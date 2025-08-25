@@ -72,14 +72,37 @@ export default defineComponent({})
 .step-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
-}
 
-.step h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
 
-.step p {
-  color: var(--secondary-text);
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
+  }
 }
 </style>

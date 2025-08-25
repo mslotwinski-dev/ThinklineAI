@@ -161,6 +161,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
   width: 400px;
+  margin: 0 10px;
   &.A {
     width: 330px;
   }

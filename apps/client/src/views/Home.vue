@@ -36,57 +36,88 @@ export default defineComponent({
   padding: 0 2rem;
   max-width: 1550px;
   margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
 }
 
 .section-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
 }
 
 .final-cta {
   text-align: center;
-  padding-bottom: 6rem;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .cta-button.secondary {
   padding: 1rem 2.5rem;
   border-radius: 10000px;
-  background-color: transparent;
+  background-color: $dark;
   color: $light;
-  background: $dark;
   border: 1px solid $violet;
   font-weight: 500;
   font-size: 1rem;
-  transition: 0.2s all;
-}
+  transition: 0.3s all;
+  cursor: pointer;
 
-.cta-button.secondary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px #62477a44;
-  color: white;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(98, 71, 122, 0.27);
+    color: white;
+  }
 }
 
 /* --- Media Queries dla responsywności --- */
+@media (max-width: 1200px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
+
+  .cta-button.secondary {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .home {
+    padding: 0 1rem;
+    gap: 4rem;
+  }
+
   .section-title {
     font-size: 2rem;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .home-container {
-    padding: 0 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .final-cta {
-    margin: 3rem -1rem 0;
+    padding: 3rem 0;
+  }
+
+  .cta-button.secondary {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .cta-button.secondary {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
   }
 }
 </style>

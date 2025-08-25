@@ -56,62 +56,99 @@ export default defineComponent({})
 </script>
 
 <style lang="scss" scoped>
-.title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-}
-
 .example {
-  padding: 3rem 0;
-}
+  padding: 3rem 1rem;
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
 
-.card {
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  background-color: $dark;
-}
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
 
-.card h4 {
-  font-size: 1.4rem;
-  margin-bottom: 0.75rem;
-}
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
+  }
 
-.card p {
-  flex-grow: 1;
-  margin-bottom: 1.5rem;
-}
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
+    @media (max-width: 480px) {
+      gap: 1.2rem;
+    }
+  }
 
-.tag {
-  background-color: #444;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
+  .card {
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    background-color: $dark;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-.tag.beginner {
-  background-color: #27ae60;
-}
-.tag.intermediate {
-  background-color: #f39c12;
-}
-.tag.advanced {
-  background-color: #c0392b;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.25rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.1rem;
+      }
+    }
+
+    p {
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 0.85rem;
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .tag {
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        background-color: #444;
+        transition: background-color 0.2s ease;
+
+        &.beginner {
+          background-color: #27ae60;
+        }
+        &.intermediate {
+          background-color: #f39c12;
+        }
+        &.advanced {
+          background-color: #c0392b;
+        }
+      }
+    }
+  }
 }
 </style>
